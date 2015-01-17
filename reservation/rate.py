@@ -4,14 +4,7 @@ Created on 17/01/2015
 @author: richard
 '''
 
-'''
-Created on 12/01/2015
-
-@author: richard
-'''
-
-import datetime
-from datetime import timedelta
+from datetime import *
 
 class rate():    
     def __init__(self,day,night):
