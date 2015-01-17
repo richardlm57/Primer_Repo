@@ -21,18 +21,18 @@ class rate():
         tempA=dateI
         while tempA<dateO:
             tempB=tempA+timedelta(hours=1)
-            if (tempA.hour<6 and tempB.hour>6) or (tempA.hour<18 and tempB.hour>18):
+            if (tempA.hour<6 and tempB.hour>=6) or (tempA.hour<18 and tempB.hour>=18):
                 totalRate+=max(self._day,self._night)
             else:
-                if tempA.hour<6 and tempA.hour>=18:
+                if tempA.hour<6 or tempA.hour>=18:
                     totalRate+=self._night
                 else:
                     totalRate+=self._day
             tempA=tempA+timedelta(hours=1)
         print(totalRate)
 
-dateA=datetime(2015,7,5,16,57,0,0)
-dateB=datetime(2015,7,5,17,56,0,0)
+dateA=datetime(2015,7,5,5,56,0,0)
+dateB=datetime(2015,7,5,7,57,0,0)
 
 r=rate(64,128)
 r.rateCompute(dateA,dateB)
