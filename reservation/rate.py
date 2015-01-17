@@ -32,7 +32,7 @@ class rate():
         print(totalRate)
 
 dateA=datetime(2015,7,5,16,57,0,0)
-dateB=datetime(2015,7,5,18,57,0,0)
+dateB=datetime(2015,7,5,17,56,0,0)
 
 r=rate(64,128)
 r.rateCompute(dateA,dateB)
