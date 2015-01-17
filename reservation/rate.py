@@ -4,6 +4,7 @@ Created on 12/01/2015
 @author: richard
 '''
 
+from decimal import Decimal
 from datetime import datetime
 from datetime import timedelta
 
@@ -34,5 +35,5 @@ class rate():
 dateA=datetime(2015,7,5,5,56,0,0)
 dateB=datetime(2015,7,5,7,57,0,0)
 
-r=rate(64,128)
+r=rate(Decimal(64),Decimal(128))
 r.rateCompute(dateA,dateB)
