@@ -1,0 +1,13 @@
+'''
+Created on 12/01/2015
+
+@author: richard
+'''
+
+class rate():
+    
+    def __init__(self,day,night):
+        self._day=day
+        self._night=night
+        
+        
