@@ -1,7 +1,8 @@
 '''
 Created on 12/01/2015
 
-@author: richard
+@author:    Richard Lares 11-10508
+            Patricia Reinoso 11-10851
 '''
 
 from decimal import Decimal
