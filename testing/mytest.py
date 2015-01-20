@@ -109,3 +109,5 @@ class testRate(unittest.TestCase):
         dateB = datetime(2015,7,5,5,59,0,0)
         
         self.assertEqual(rateCompute(dateA, dateB, myrate), 5, "Pago de tiempo minimo incorrecto")
+
+	#Comentario
