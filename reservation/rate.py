@@ -29,7 +29,7 @@ def rateCompute(dateI,dateO, r):
     tempA=dateI
     while tempA<dateO:
         tempB=tempA+timedelta(hours=1)
-        if tempB.hour>dateO.hour:
+        if tempB.hour>dateO.hour and tempB > dateO:
             tempB=tempB-timedelta(hours=1)
         if (tempA.hour<6 and tempB.hour>=6) or (tempA.hour<18 and tempB.hour>=18):
             totalRate+=max(r.GetDay(),r.GetNight())
