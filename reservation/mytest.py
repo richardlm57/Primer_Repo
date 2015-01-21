@@ -8,16 +8,16 @@ Created on 19/01/2015
 import unittest
 from rate import *
 
-
 class testRate(unittest.TestCase):
+
+    # Fecha cualquiera
     
     def testAnyDate(self):
         self.assertEqual(rateCompute(datetime(2015,7,5,5,56,0,0), datetime(2015,7,5,7,57,0,0), rate(15,20)), 50)
         
-        
     # Extremos en la salida
     
-    # Pago minimo: Tiempo minimo durante el momento del dia con la tarifa mas barata
+    # Pago mínimo: Tiempo mínimo durante el momento del día con la tarifa mas barata
     
     def testMinPay(self):
         
@@ -27,7 +27,7 @@ class testRate(unittest.TestCase):
         
         self.assertEqual(rateCompute(dateA, dateB, myrate), 15, "Pago minimo incorrecto")
     
-    # Pago maximo: Tiempo maximo (3 dias) independiente de la hora de entrada
+    # Pago máximo: Tiempo maximo (3 dias) independiente de la hora de entrada
         
     def testMaxPay(self):
         
@@ -40,9 +40,9 @@ class testRate(unittest.TestCase):
     
     # Extremos en la entrada
     
-    # Minimo de la entrada
+    # Mínimo de la entrada
     
-    # Minimo tiempo (15 min) durante el dia
+    # Mínimo tiempo (15 min) durante el día
     # Extremo
     
     def testMinTimeDay(self):
@@ -53,7 +53,7 @@ class testRate(unittest.TestCase):
         
         self.assertEqual(rateCompute(dateA, dateB, myrate), 15, "Pago de tiempo minimo incorrecto")
     
-    # Minimo tiempo (15 min) durante la noche
+    # Mínimo tiempo (15 min) durante la noche
     # Extremo
     
     def testMinTimeNight (self):
@@ -64,7 +64,7 @@ class testRate(unittest.TestCase):
                 
         self.assertEqual(rateCompute(dateA, dateB, myrate), 20, "Pago de tiempo minimo incorrecto")
     
-    # Minimo tiempo (15 min) entre la noche y el dia
+    # Mínimo tiempo (15 min) entre la noche y el dia
     # Extremo
     
     def testMinTimeNightDay(self):
@@ -74,9 +74,8 @@ class testRate(unittest.TestCase):
         dateB = datetime(2015,7,5,6,10,0,0)
         
         self.assertEqual(rateCompute(dateA, dateB, myrate), 20, "Pago de tiempo minimo incorrecto")
-    
-    
-    # Minumo tiempo (15 min) entre el dia y la noche
+        
+    # Mínimo tiempo (15 min) entre el dia y la noche
     
     def testMinTimeDayNight(self):
     
@@ -86,8 +85,7 @@ class testRate(unittest.TestCase):
         
         self.assertEqual(rateCompute(dateA, dateB, myrate), 20, "Pago de tiempo minimo incorrecto")
 
-
-    # Maxtimo Tiempo empezando en una frontera
+    # Máximo tiempo empezando en una frontera
     # Esquina maliciosa
     
     def testMaxTimeStartingAt6(self):
@@ -118,7 +116,7 @@ class testRate(unittest.TestCase):
         
         self.assertEqual(rateCompute(dateA, dateB, myrate), Decimal(15), "Pago incorrecto")
        
-    # Extremo: Minimo tiempo, con cambio de tarifa nocturna a diurna
+    # Extremo: Mínimo tiempo, con cambio de tarifa nocturna a diurna
             
     def testDayNightChange3(self):
         
@@ -128,7 +126,7 @@ class testRate(unittest.TestCase):
         
         self.assertEqual(rateCompute(dateA, dateB, myrate), Decimal(20), "Pago incorrecto")
     
-    # Extremo: Minimo tiempo, con cambio de tarifa diurna a nocturna  
+    # Extremo: Mínimo tiempo, con cambio de tarifa diurna a nocturna  
         
     def testDayNightChange4(self):
         
@@ -197,6 +195,8 @@ class testRate(unittest.TestCase):
         dateB = datetime(2015,7,5,18,10,0,0)
         
         self.assertRaises(AssertionError,rateCompute,dateA,dateB,myrate)
+        
+    # Invalido: Tiempo mayor al máximo de tiempo
         
     def testGreaterThanMax(self):
         
